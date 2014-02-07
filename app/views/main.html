@@ -6,6 +6,8 @@
   </ul>
   <h3 class="text-muted">WebRtc Playground</h3>
 </div>
+
+  <button type="button" class="btn btn-primary btn-lg" ng-click="takePic">Take Pic</button>
  <div class='select'>
     <label for='audioSource'>Audio source: </label><select id='audioSource'></select>
   </div>
@@ -14,12 +16,14 @@
     <label for='videoSource'>Video source: </label><select id='videoSource'></select>
   </div>
 
-
-<div class="jumbotron">
-      <video id="videoContainer" muted autoplay></video>
+<div class="container">
+  <div class="col-lg-1 col-offset-6 centered">
+    <video id="videoContainer" muted autoplay></video>
+  </div>
 </div>
 
-<div class="row marketing">
+<div>
+  <canvas id="canvas"></canvas>
 </div>
 
 <div class="footer">

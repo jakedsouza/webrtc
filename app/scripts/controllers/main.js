@@ -7,6 +7,7 @@ angular.module('webrtcApp')
    var constraints = {audio: false, video: true};
 
    var video;
+
    function successCallback(stream) {
       video = document.querySelector('video');
       window.stream = stream; // stream available to console
@@ -16,6 +17,7 @@ angular.module('webrtcApp')
          video.src = stream;
      }
    video.play();
+
    }
 
    function errorCallback(error){
@@ -23,4 +25,16 @@ angular.module('webrtcApp')
    }
 
    navigator.getUserMedia(constraints, successCallback, errorCallback);
+
+  video.addEventListener('canplay', function(ev){
+    if (!streaming) {
+      height = video.videoHeight / (video.videoWidth/width);
+      video.setAttribute('width', width);
+      video.setAttribute('height', height);
+      canvas.setAttribute('width', width);
+      canvas.setAttribute('height', height);
+      streaming = true;
+    }
+  }, false);
+
 });
